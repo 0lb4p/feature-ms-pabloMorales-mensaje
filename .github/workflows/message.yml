@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew clear build
+          ./gradlew clean build
           ls build/libs
           # cat build/reports/jacoco/test/jacocoTestReport.xml
           
@@ -27,7 +27,7 @@ jobs:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
            chmod +x gradlew
-           ./gradlew clear build sonar --info    
+           ./gradlew clean build sonar --info    
         
       - name: copia JAR
         run: |
