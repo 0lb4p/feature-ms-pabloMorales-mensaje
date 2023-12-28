@@ -21,7 +21,7 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-  finalizedBy jacocoTestReport
+	finalizedBy jacocoTestReport
 }
 
 jacoco {
@@ -29,11 +29,21 @@ jacoco {
 }
 
 jacocoTestReport {
-    dependsOn test
-
+    dependsOn test 
     reports {
         xml.required = true
         csv.required = false
+    }
+}
+
+jacocoTestCoverageVerification {
+	enabled = true
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.75
+            }
+        }
     }
 }
 
@@ -44,3 +54,5 @@ sonar {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
+
+check.dependsOn jacocoTestCoverageVerification

@@ -19,13 +19,24 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-          ls build/reports/jacoco/test
+          cat build/reports/jacoco/test/jacocoTestReport.xml
           
-      #
-      # - name: SonarCloud Analysis
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #   run: |
-      #     chmod +x gradlew
-      #     ./gradlew build sonar --info       
+      - name: Code Review
+        env:
+           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+           chmod +x gradlew
+           ./gradlew build sonar --info       
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: 0lb4p/feature-ms-pablo-morales-mensaje:latest
 
