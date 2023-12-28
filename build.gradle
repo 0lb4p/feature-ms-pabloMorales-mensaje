@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id "org.sonarqube" version "4.4.1.3373"
 	id 'java'
 }
 
@@ -19,4 +20,28 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+
+sonar {
+  properties {
+    property "sonar.projectKey", "0lb4p-organization_feature-ms-pablomorales-mensaje"
+    property "sonar.organization", "0lb4p-organization"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+
+    violations {
+        rule {
+            limit {
+                minimum = 0.85
+            }
+        }
+    }
+}
+
+tasks.test.dependsOn jacocoTestReport
