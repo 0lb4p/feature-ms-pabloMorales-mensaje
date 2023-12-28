@@ -21,11 +21,11 @@ jobs:
           ./gradlew build
           cat build/reports/jacoco/test/jacocoTestReport.xml
           
-      #
-      # - name: SonarCloud Analysis
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #   run: |
-      #     chmod +x gradlew
-      #     ./gradlew build sonar --info       
+      
+      - name: Code-Review
+        env:
+           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+           chmod +x gradlew
+           ./gradlew build sonar --info       
 
