@@ -37,6 +37,16 @@ jacocoTestReport {
     }
 }
 
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.85
+            }
+        }
+    }
+}
+
 sonar {
   properties {
     property "sonar.projectKey", "0lb4p-organization_feature-ms-pablomorales-mensaje"
