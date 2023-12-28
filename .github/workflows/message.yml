@@ -18,9 +18,5 @@ jobs:
       - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew build
-          ls -ltra
-      
-      - name: Display test report
-        run: cat build/test-results/test/*.xml
+          ./gradlew clean build
 
