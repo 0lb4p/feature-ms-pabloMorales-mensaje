@@ -15,16 +15,16 @@ jobs:
     
       - uses: actions/checkout@v3
 
-      # - name: Build
-      #   run: |
-      #     chmod +x gradlew
-      #     ./gradlew build
-      #     ls -ltra
-      #
-      - name: SonarCloud Analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew build sonar --info       
+          ./gradlew build
+          ls -ltra
+      #
+      # - name: SonarCloud Analysis
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   run: |
+      #     chmod +x gradlew
+      #     ./gradlew build sonar --info       
 
