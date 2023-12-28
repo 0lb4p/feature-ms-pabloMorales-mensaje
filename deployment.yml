@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-deployment
+  labels:
+    app: message
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: message
+  template:
+    metadata:
+      labels:
+        app: message
+    spec:
+      containers:
+      - name: message
+        image: 0lb4p/feature-ms-pablo-morales-mensaje:latest
+        ports:
+        - containerPort: 8085
