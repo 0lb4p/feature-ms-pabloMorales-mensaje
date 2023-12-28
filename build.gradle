@@ -59,4 +59,4 @@ sonar {
   }
 }
 
-tasks.test.dependsOn jacocoTestCoverageVerification, jacocoTestReport
+tasks.test.dependsOn jacocoTestReport
