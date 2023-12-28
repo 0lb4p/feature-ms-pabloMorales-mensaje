@@ -19,7 +19,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-          ls -ltra
+          ls build/reports
+          
       #
       # - name: SonarCloud Analysis
       #   env:
