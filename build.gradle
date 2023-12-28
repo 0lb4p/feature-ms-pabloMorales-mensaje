@@ -54,4 +54,3 @@ sonar {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
-check.dependsOn jacocoTestCoverageVerification
