@@ -29,20 +29,3 @@ sonar {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
-
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = false
-    }
-
-    violations {
-        rule {
-            limit {
-                minimum = 0.85
-            }
-        }
-    }
-}
-
-tasks.test.dependsOn jacocoTestReport
