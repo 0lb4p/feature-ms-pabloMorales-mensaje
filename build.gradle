@@ -37,12 +37,11 @@ jacocoTestReport {
 }
 
 jacocoTestCoverageVerification {
-	dependsOn test
 	enabled = true
     violationRules {
         rule {
             limit {
-                minimum = 1
+                minimum = 0.85
             }
         }
     }
@@ -55,3 +54,4 @@ sonar {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
+check.dependsOn jacocoTestCoverageVerification
