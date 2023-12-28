@@ -19,7 +19,7 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-          ls build/reports/jacoco/test
+          ls build/reports/jacoco/test/jacocoTestReport.xml
           
       #
       # - name: SonarCloud Analysis
