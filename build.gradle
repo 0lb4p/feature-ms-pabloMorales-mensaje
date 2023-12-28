@@ -35,8 +35,13 @@ jacocoTestReport {
         xml.required = true
         csv.required = false
     }
+}
 
-	violationRules {
+
+
+jacocoTestCoverageVerification {
+	dependOn test
+    violationRules {
         rule {
             limit {
                 minimum = 0.85
@@ -44,6 +49,8 @@ jacocoTestReport {
         }
     }
 }
+
+
 
 
 sonar {
