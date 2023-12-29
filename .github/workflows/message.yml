@@ -31,10 +31,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: 0lb4p/feature-ms-pablo-morales-mensaje:latest
+        run: |
+          docker build -t 0lb4p/feature-ms-pablo-morales-mensaje:latest .
+          docker push 0lb4p/feature-ms-pablo-morales-mensaje:latest
 
   deploy:
 
