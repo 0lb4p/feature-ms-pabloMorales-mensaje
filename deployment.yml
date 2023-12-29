@@ -16,6 +16,8 @@ spec:
     spec:
       containers:
       - name: message
-        image: docker.io/0lb4p/feature-ms-pablo-morales-mensaje:latest
+        image: 0lb4p/feature-ms-pablo-morales-mensaje:latest
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 8085
+
