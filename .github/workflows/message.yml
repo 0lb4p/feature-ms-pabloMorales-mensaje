@@ -45,4 +45,4 @@ jobs:
     
     - name: Deploy in k8s
       run: |
-        kubectl apply -f deployment.yml
+        microk8s kubectl apply -f deployment.yml
