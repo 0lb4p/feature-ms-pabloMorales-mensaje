@@ -6,6 +6,4 @@ ADD *.jar /app/message.jar
 
 WORKDIR /app
 
-USER ROOT
-
 CMD java -jar message.jar
