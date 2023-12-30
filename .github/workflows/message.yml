@@ -46,3 +46,14 @@ jobs:
     - name: Deploy in k8s
       run: |
         microk8s kubectl apply -f deployment.yml
+
+  test:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      
+      - uses: actions/checkout@v3
+
+      - name: Test JMeter
+        run: |
+          jmeter -n -t test.jmx -l log.jtl
